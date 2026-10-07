@@ -12,7 +12,7 @@ public:
 
         for(int i=0;i<k;i++){
             bags[i]+=cookies[idx];
-            solve(cookies,k,bags,result,idx+1);
+            if(bags[i]<result)solve(cookies,k,bags,result,idx+1);
             bags[i]-=cookies[idx];
         }
     }
