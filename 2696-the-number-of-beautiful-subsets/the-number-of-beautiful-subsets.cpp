@@ -7,6 +7,7 @@ public:
             result++;
             return;
         }
+        solve(nums, k, result, mp, idx + 1);
         if (!mp.count(nums[idx] + k) && !mp.count(nums[idx] - k)) {
             mp[nums[idx]]++;
             solve(nums, k, result, mp, idx + 1);
@@ -14,7 +15,6 @@ public:
             if (mp[nums[idx]] == 0)
                 mp.erase(nums[idx]);
         }
-        solve(nums, k, result, mp, idx + 1);
     }
     int beautifulSubsets(vector<int>& nums, int k) {
         unordered_map<int, int> mp;
