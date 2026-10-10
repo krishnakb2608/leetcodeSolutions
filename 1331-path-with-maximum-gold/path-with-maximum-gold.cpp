@@ -15,7 +15,6 @@ public:
         solve(grid,row-1,col,ans,visited,finalAns);
         solve(grid,row,col-1,ans,visited,finalAns);
         visited[row][col]=0;
-        // ans-=grid[row][col]; 
     }
     int getMaximumGold(vector<vector<int>>& grid) {
         int ans=0;
@@ -23,6 +22,7 @@ public:
         int finalAns=0;
         for(int i=0;i<grid.size();i++){
             for(int j=0;j<grid[0].size();j++){
+                if(grid[i][j]!=0)
                 solve(grid,i,j,ans,visited,finalAns);
             }
         }
