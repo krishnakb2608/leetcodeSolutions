@@ -7,10 +7,8 @@ public:
     BrowserHistory(string homepage) { prev.push(homepage); }
 
     void visit(string url) {
-        if (!front.empty()) {
-            while (!front.empty())
-                front.pop();
-        }
+        while (!front.empty())
+            front.pop();
         prev.push(url);
     }
 
