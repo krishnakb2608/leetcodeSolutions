@@ -10,8 +10,13 @@ public:
         return dp[idx][flag]=max(take,skip);
     }
     long long maxAlternatingSum(vector<int>&nums) {
-        vector<vector<long long>>dp(nums.size(),vector<long long>(2,-1));
-        long long ans=solve(nums,true,0,dp);
-        return ans;
+        vector<vector<long long>>dp(nums.size()+1,vector<long long>(2,0));
+        int n=nums.size();
+        for(int idx=n-1;idx>=0;idx--){
+            dp[idx][0]=max(dp[idx+1][0],-nums[idx]+dp[idx+1][1]);
+            dp[idx][1]=max(dp[idx+1][1],nums[idx]+dp[idx+1][0]);
+
+        }
+        return dp[0][1];
     }
 };
